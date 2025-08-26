@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonik - Historial de Actualizaciones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #00e676; /* Sonik green */
+            text-shadow: 0 0 15px rgba(0, 230, 118, 0.6);
+        }
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(to bottom, #00e676, #00b0ff, #ff1744);
+            height: 100%;
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 100px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .timeline-content {
+            width: 45%;
+            background-color: rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 230, 118, 0.2);
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 230, 118, 0.3);
+        }
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -16px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 16px 0 16px 16px;
+            border-color: transparent transparent transparent rgba(255, 255, 255, 0.08);
+        }
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: -16px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 16px 16px 16px 0;
+            border-color: transparent rgba(255, 255, 255, 0.08) transparent transparent;
+        }
+        .timeline-date {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #00e676;
+        }
+        .timeline-text {
+            font-size: 1.1rem;
+            color: #c0c0c0;
+        }
+        .timeline-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #00e676, #00b0ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(0, 230, 118, 0.7);
+            color: #0a0a0a;
+        }
+        .final-block {
+            background: linear-gradient(45deg, #00e676, #00b0ff, #ff1744);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0a0a0a;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0, 230, 118, 0.8);
+        }
+        .final-block::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: glow-pulse 3s infinite alternate;
+            opacity: 0.7;
+        }
+        @keyframes glow-pulse {
+            0% { transform: scale(0.8); opacity: 0.7; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+                transform: translateX(0);
+            }
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 60px;
+            }
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+            }
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px;
+            }
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                border: none;
+            }
+            .timeline-icon {
+                left: 20px;
+                transform: translateX(-50%);
+                top: -30px; /* Adjust icon position for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="section-title">Historial de Actualizaciones</h1>
+
+        <div class="timeline">
+            <!-- Antes del 31/07/25 -->
+            <div class="timeline-item">
+                <div class="timeline-icon">🎶</div>
+                <div class="timeline-content">
+                    <p class="timeline-date">Antes del 31/07/25</p>
+                    <p class="timeline-text">Nace la idea de Radio Sonik (primer prototipo funcionando).</p>
+                </div>
+            </div>
+
+            <!-- 31/07/25 -->
+            <div class="timeline-item">
+                <div class="timeline-icon">⚡</div>
+                <div class="timeline-content">
+                    <p class="timeline-date">31/07/25</p>
+                    <p class="timeline-text">Primera Update oficial de Sonik Music.</p>
+                </div>
+            </div>
+
+            <!-- 01/08/25 -->
+            <div class="timeline-item">
+                <div class="timeline-icon">🟢</div>
+                <div class="timeline-content">
+                    <p class="timeline-date">01/08/25</p>
+                    <p class="timeline-text">Se agregan más secciones y mejoras visuales.</p>
+                </div>
+            </div>
+
+            <!-- 04/08/25 -->
+            <div class="timeline-item">
+                <div class="timeline-icon">🔧</div>
+                <div class="timeline-content">
+                    <p class="timeline-date">04/08/25</p>
+                    <p class="timeline-text">Parche de APIs internas para mayor estabilidad.</p>
+                </div>
+            </div>
+
+            <!-- 05/08/25 -->
+            <div class="timeline-item">
+                <div class="timeline-icon">🚀</div>
+                <div class="timeline-content">
+                    <p class="timeline-date">05/08/25</p>
+                    <p class="timeline-text">Optimización de APIs con rotación mejorada.</p>
+                </div>
+            </div>
+
+            <!-- Actualidad (Agosto 2025) -->
+            <div class="timeline-item">
+                <div class="timeline-icon">✨</div>
+                <div class="timeline-content">
+                    <p class="timeline-date">Actualidad (Agosto 2025)</p>
+                    <p class="timeline-text">En desarrollo la update más grande hasta ahora: rediseño visual, nuevas funciones y optimización general.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="final-block">
+            <p>⏳ “Próxima actualización disponible pronto. El mismo día del lanzamiento, el código y la aplicación para PC estarán publicados en nuestro <a href="#" class="text-white underline hover:no-underline">GitHub oficial</a>.”</p>
+            <p>⚡ “Todas las actualizaciones serán probadas antes de su publicación para garantizar estabilidad.”</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const timelineItems = document.querySelectorAll(".timeline-item");
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.3 }); // Adjust threshold as needed
+
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
