@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sonik - La Nueva Era de la Comunicación</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,22 +13,9 @@
 
     <div id="splash-screen">
         <div class="splash-content">
-            <h2 class="splash-text" id="splash-text-1">Presentado por: Voxel Verse Network</h2>
-            <div id="sonik-music-container">
-                <div id="animated-check"></div>
-                <h2 class="splash-text" id="splash-text-2">Sonik Music</h2>
-            </div>
-            <div class="logo-container">
-                <span class="logo-char" id="char-S">S</span>
-                <span class="logo-char" id="char-O">O</span>
-                <span class="logo-char" id="char-N">N</span>
-                <span class="logo-char" id="char-I">I</span>
-                <span class="logo-char" id="char-K">K</span>
-            </div>
-            <div class="plug-container">
-                <div class="plug"></div>
-                <div class="socket"></div>
-            </div>
+            <div id="animated-check"></div>
+            <h2 class="splash-text" id="splash-text-1">Presentado por: Voxel Verse Studio</h2>
+            <h2 class="splash-text" id="splash-text-2">Sonik Music</h2>
         </div>
     </div>
 
@@ -40,52 +27,60 @@
         <div class="container header-container">
             <h1 class="logo">Sonik</h1>
             <nav class="main-nav">
-                <a href="#inicio">Inicio</a>
-                <a href="updates.html">Actualizaciones</a>
-                <a href="#about">Sobre Sonik</a>
-                <a href="#community">Comunidad</a>
+                <a href="#inicio" data-i18n="nav_inicio">Inicio</a>
+                <a href="updates.html" data-i18n="nav_actualizaciones">Actualizaciones</a>
+                <a href="#about" data-i18n="nav_about">Sobre Sonik</a>
+                <a href="#community" data-i18n="nav_community">Comunidad</a>
             </nav>
+            <div class="language-selector-container">
+                <select id="language-selector">
+                    <option value="es">Español</option>
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
         </div>
     </header>
 
     <main>
         <section id="inicio" class="hero-section container">
-            <h2 class="hero-title">La nueva era de la comunicación está llegando.</h2>
-            <p class="hero-subtitle">Una plataforma diseñada para ser rápida, segura y increíblemente intuitiva.</p>
+            <h2 class="hero-title" data-i18n="hero_title">La nueva era de la comunicación está llegando.</h2>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">Una plataforma diseñada para ser rápida, segura y increíblemente intuitiva.</p>
             <div class="release-status">
-                Fecha de Lanzamiento: <span>No disponible</span>
+                <span data-i18n="release_date">Fecha de Lanzamiento:</span> <span data-i18n="release_status_unavailable">No disponible</span>
             </div>
         </section>
 
         <section id="updates" class="container">
-            <h3 class="section-title">Historial de Actualizaciones</h3>
-            <p class="text-center">Consulta nuestro historial completo de actualizaciones en la <a href="updates.html" class="text-green-400 hover:underline">página de Actualizaciones</a>.</p>
+            <h3 class="section-title" data-i18n="updates_history_title">Historial de Actualizaciones</h3>
+            <p class="text-center"><span data-i18n="updates_history_link_text">Consulta nuestro historial completo de actualizaciones en la</span> <a href="updates.html" class="text-green-400 hover:underline" data-i18n="updates_history_link_page">página de Actualizaciones</a>.</p>
         </section>
 
         <section id="about" class="container">
             <div class="section-container glass-effect">
-                <h3 class="section-title">Sobre Sonik</h3>
+                <h3 class="section-title" data-i18n="about_title">Sobre Sonik</h3>
                 <p class="about-text">
-                    Sonik es una aplicación de comunicación de próxima generación que prioriza la <span style="color: var(--primary-accent); font-weight: bold;">velocidad</span>, la <span style="color: var(--primary-accent); font-weight: bold;">privacidad</span> y la experiencia de usuario. Creada desde cero con tecnología de punta, nuestro objetivo es ofrecer una herramienta que no solo sea funcional, sino también un placer de usar. Creemos en un diseño minimalista pero potente, donde cada interacción se siente fluida y natural.
-                    Además, Sonik no guardará tu información en servidores externos: todo quedará almacenado <span style="color: var(--primary-accent); font-weight: bold;">localmente</span> en tu carpeta de Sonik en el PC.
+                    <span data-i18n="about_text_1">Sonik es una aplicación de comunicación de próxima generación que prioriza la</span> <span style="color: var(--primary-accent); font-weight: bold;" data-i18n="about_text_speed">velocidad</span><span data-i18n="about_text_2">, la</span> <span style="color: var(--primary-accent); font-weight: bold;" data-i18n="about_text_privacy">privacidad</span> <span data-i18n="about_text_3">y la experiencia de usuario. Creada desde cero con tecnología de punta, nuestro objetivo es ofrecer una herramienta que no solo sea funcional, sino también un placer de usar. Creemos en un diseño minimalista pero potente, donde cada interacción se siente fluida y natural.</span>
+                    <br><br>
+                    <span data-i18n="about_text_4">Además, Sonik no guardará tu información en servidores externos: todo quedará almacenado</span> <span style="color: var(--primary-accent); font-weight: bold;" data-i18n="about_text_local">localmente</span> <span data-i18n="about_text_5">en tu carpeta de Sonik en el PC.</span>
                 </p>
             </div>
         </section>
 
         <section id="community" class="container text-center">
-            <h3 class="section-title">Únete a la Comunidad</h3>
-            <p class="community-text">Sigue nuestro desarrollo y sé el primero en enterarte de las novedades.</p>
+            <h3 class="section-title" data-i18n="community_title">Únete a la Comunidad</h3>
+            <p class="community-text" data-i18n="community_text">Sigue nuestro desarrollo y sé el primero en enterarte de las novedades.</p>
             <div class="community-links">
                 <a href="https://discord.gg/g6b5PJuGWp" class="btn-glow">Discord</a>
-                <a href="#" class="btn-glow disabled" title="Próximamente">YouTube</a>
-                <a href="#" class="btn-glow disabled" title="Próximamente">Twitter / X</a>
+                <a href="#" class="btn-glow disabled" title="Próximamente" data-i18n="coming_soon">YouTube</a>
+                <a href="#" class="btn-glow disabled" title="Próximamente" data-i18n="coming_soon">Twitter / X</a>
             </div>
         </section>
     </main>
 
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2025 Sonik. Todos los derechos reservados.</p>
+            <p data-i18n="copyright">&copy; 2025 Sonik. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -93,12 +88,12 @@
     <audio id="easter-egg-audio" src="assets/music/easteregg.mp3"></audio>
     <div id="easter-egg-modal-backdrop" class="hidden">
         <div id="easter-egg-modal">
-            <p class="modal-title">🎉 ¡Felicidades! 🎉</p>
-            <p>Has desbloqueado un secreto oculto en Sonik 🎶</p>
-            <p class="activation-counter">Has descubierto este secreto <span id="activation-count">0</span> veces.</p>
+            <p class="modal-title" data-i18n="easter_egg_congrats">🎉 ¡Felicidades! 🎉</p>
+            <p data-i18n="easter_egg_unlocked">Has desbloqueado un secreto oculto en Sonik 🎶</p>
+            <p class="activation-counter"><span data-i18n="easter_egg_discovered">Has descubierto este secreto</span> <span id="activation-count">0</span> <span data-i18n="easter_egg_times">veces.</span></p>
             <div class="modal-actions">
-                <button id="pause-play-button">Pausar</button>
-                <button id="close-modal-button">Cerrar</button>
+                <button id="pause-play-button" data-i18n="easter_egg_pause">Pausar</button>
+                <button id="close-modal-button" data-i18n="easter_egg_close">Cerrar</button>
             </div>
         </div>
     </div>
@@ -107,5 +102,6 @@
     <script src="js/main.js"></script>
     <script src="js/easteregg.js"></script>
     <script src="js/splash.js"></script>
+    <script src="js/lang.js"></script>
 </body>
 </html>
